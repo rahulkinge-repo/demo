@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+
+}
+
+group = 'com.demoapi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	implementation 'org.apache.camel:camel-main:3.2.0'
+	implementation group: 'org.apache.camel.springboot', name: 'camel-servlet-starter', version: '3.2.0'
+	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.2.0'
+
+	//implementation "org.apache.camel:camel-servlet-starter:3.0.1"
+	//implementation "org.apache.camel:camel-jackson-starter:3.2.0"
+	//implementation "org.apache.camel:camel-swagger-java-starter:3.2.0"
+	//implementation "org.apache.camel:camel-spring-boot-starter:3.2.0"
+}
+
+test {
+	useJUnitPlatform()
+}
