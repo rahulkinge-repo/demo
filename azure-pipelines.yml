@@ -10,8 +10,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
-
 steps:
 - task: SonarCloudPrepare@1
   inputs:
@@ -36,5 +34,3 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-
-- task: WhiteSource@21
