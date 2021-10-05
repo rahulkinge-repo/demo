@@ -10,6 +10,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarConnection'
+    organization: 'app-org-scanner'
+    scannerMode: 'Other'
+
 steps:
 - task: Gradle@2
   inputs:
@@ -23,5 +29,11 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
     checkStyleRunAnalysis: 
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: WhiteSource@21
