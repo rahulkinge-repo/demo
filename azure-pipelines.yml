@@ -10,13 +10,14 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+
+steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonarConnection'
     organization: 'app-org-scanner'
     scannerMode: 'Other'
-
-steps:
 - task: Gradle@2
   inputs:
     workingDirectory: ''
